@@ -1,3 +1,5 @@
+ /************* Header Styling ***********/
+
 .header {
   display: flex;
   align-items: center;
@@ -26,7 +28,8 @@
 
 .header_inputButton {
   width: 50px !important;
-  background-color: #fafafa;
+  height: 35px !important;
+  background-color: #ebe8e8;
   color: gray;
   border: none;
   cursor: pointer;
@@ -52,8 +55,15 @@
 }
 .menu_icon {
   color: gray;
-
+   cursor: pointer;
 }
+.menu_icon:hover{
+  background-color: lightgray;
+  border-radius: 50%;
+ padding: 5px 10px 5px 10px;
+  
+}
+
 .header_logo {
   height: 45px;
   object-fit: contain;
@@ -63,4 +73,65 @@
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+
+
+/************ Sidebar Styiling ************/
+
+.sidebar{
+  flex:0.2 ; /* 0.2 means it will take onl 20% of page */
+  
+}
+.sidebar > hr{
+   height: 1px;
+  border: 0;
+  background-color: lightgray;
+  margin-top: 10px;
+  margin-bottom: 10px; 
+}
+
+.sidebarRow{
+ display: flex; 
+ align-items: center;
+ padding: 10px 20px;
+}
+
+.sidebarRow_icon{
+  color: rgba(50, 50, 50, 0.989);
+  font-size: large !important;
+}
+
+.sidebarRow_title{
+  flex: 1;
+  margin-left: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.sidebarRow:hover{
+  background-color: rgb(227, 224, 224);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sidebarRow:hover > .sidebarRow_icon{
+  color: red;
+}
+
+.sidebarRow:hover > .sidebarRow_title{
+  font-weight: bold;
+}
+
+.sidebarRow.selected{
+  background-color: rgb(238, 237, 237);
+  border-radius: 5px;
+}
+
+.sidebarRow.selected > .sidebarRow_icon{
+  color: red;
+}
+
+.sidebarRow.selected > .sidebarRow_title{
+  font-weight: bold;
 }

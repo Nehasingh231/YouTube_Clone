@@ -7,12 +7,22 @@ import DuoIcon from "@mui/icons-material/Duo";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import Avatar from "@mui/material/Avatar";
 import MicIcon from '@mui/icons-material/Mic';
+import { useDispatch } from 'react-redux';
+import { toggleMenu } from '../utils/appSlice';
 
 const Head = () => {
+  const dispatch = useDispatch();
+
+   const toggleMenuHandler = () => {
+     dispatch(toggleMenu())
+   };
+   
   return (
     <div className='header shadow-lg p-2 m-2'> 
       <div className='header_left'>
-         <MenuIcon className='menu_icon'/>
+         <MenuIcon className='menu_icon'
+          onClick={() => toggleMenuHandler()}
+         />
         <img 
         className='header_logo'
         alt="youtube logo"
