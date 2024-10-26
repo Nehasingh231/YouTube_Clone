@@ -2,19 +2,17 @@
 import React from 'react'
 
 const VideoCards = ({info}) => {
-    console.log(info)
-    const { snippet, statistics} = info;
-    const { channelTitle, title, thumbnails} = snippet;
+    console.log(info);
+    const { snippet, statistics} = info || {} ;
+    const { channelTitle, title, thumbnails} = snippet || {};
+
   return (
-    <div>
-     <img 
-     src={thumbnails.medium.url}
-     alt=''
-     />
+    <div className='p-2 m-2 w-80'>
+     <img src={thumbnails?.medium?.url} alt='' className='rounded-lg'/>
      <ul>
-       <li>{title}</li>
+       <li className='font-bold py-2'>{title}</li>
        <li>{channelTitle}</li>
-       <li>{statistics.viewCount}</li>
+       <li className=''>{statistics?.viewCount} views</li>
      </ul>
     </div>
   )
@@ -22,14 +20,3 @@ const VideoCards = ({info}) => {
 
 export default VideoCards;
 
-
-// import React from 'react'
-
-// const VideoCards = ({info }) => {
-//     console.log(info);
-//   return (
-//     <div>VideoCards</div>
-//   )
-// }
-
-// export default VideoCards
