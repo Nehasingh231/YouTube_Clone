@@ -22,7 +22,7 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <Link to="">
+      <Link to="/">
         <SidebarRow selected Icon={HomeIcon} title="Home" />
       </Link>
 

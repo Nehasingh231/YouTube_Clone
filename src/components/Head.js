@@ -9,6 +9,7 @@ import Avatar from "@mui/material/Avatar";
 import MicIcon from "@mui/icons-material/Mic";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { Link } from "react-router-dom";
 
 
 const Head = () => {
@@ -22,12 +23,19 @@ const Head = () => {
     <div className="header shadow-lg p-2 m-2">
       <div className="header_left">
         <MenuIcon className="menu_icon" onClick={() => toggleMenuHandler()} />
-
+    {/**
+        <img          
+         className="header_logo"           
+         alt="youtube logo"           
+         src="https://logos-world.net/wp-content/uploads/2020/05/Black-YouTube-logo.png"        
+          />
+    */}
         <img
-          className="header_logo"
-          alt="youtube logo"
-          src="https://logos-world.net/wp-content/uploads/2020/05/Black-YouTube-logo.png"
-        />
+        className="header_logo"
+        alt="youtube logo"
+        src="https://www.gstatic.com/youtube/img/promos/growth/cfab8a3a4b899deee746ddaf96692c609c6f03c6d648efc946d369b1b0928810_244x112.webp"
+      />
+        
       </div>
 
       <div className="header_input">
@@ -35,7 +43,7 @@ const Head = () => {
         <SearchIcon className="header_inputButton" />
       </div>
 
-      <div>
+      <div> 
         <MicIcon className="mic_icon" />
       </div>
       <div className="header_icons">
