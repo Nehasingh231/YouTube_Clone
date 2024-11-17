@@ -15,6 +15,8 @@ import { YOUTUBE_SEARCH_API } from "../utils/constants";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(true);
   useEffect(() => {
     
       // make an API call after every key press
@@ -31,6 +33,7 @@ const getSearchSuggestions = async() => {
   const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
   const json = await data.json();
   // console.log(json[1]);
+  setSuggestions(json[1])
 };
 
 
@@ -70,18 +73,25 @@ const getSearchSuggestions = async() => {
             placeholder="Search" 
             value = {searchQuery}
             onChange={(e)=> setSearchQuery(e.target.value)}
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => setShowSuggestions(false)}
          />
         <SearchIcon className="header_inputButton" />
       </div>
+    {showSuggestions && (
      <div className="suggestions">
       <ul>
-       <li>🔍 iphone</li>
-       <li> iphone</li>
-       <li> iphone</li>
-       <li> iphone</li>
-       <li> iphone</li>
+      {suggestions.map((s)=> (
+        <li 
+         key={s}
+        className="py-2 px-3 shadow-sm hover:bg-gray-100">
+        🔍 {s}
+        </li>
+      ))}
+       
       </ul>
      </div>
+   )}
       <div> 
         <MicIcon className="mic_icon" />
       </div>
